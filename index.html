@@ -3466,7 +3466,7 @@
         ];
 
          function Navbar({ rightSidebarOpen, setRightSidebarOpen, onArticlesClick, onHomeClick, onAboutClick, onCoursesClick, onTestSeriesOnlineClick, onTestSeriesOfflineClick, onDownloadsClick, currentView, user, isAdmin, onSignIn, onSignOut, onSavesClick, testSeriesMode }) {
-            const activeLink = currentView === 'about' ? 'About' : currentView === 'courses' ? 'Courses' : currentView === 'test-series' ? 'Test Series' : currentView === 'test-series-detail' ? 'Test Series' : currentView === 'downloads' ? 'Downloads' : (currentView === 'articles' || currentView === 'article') ? 'Articles / Blog' : 'Home';
+            const activeLink = currentView === 'about' ? 'About' : currentView === 'courses' ? 'Courses' : currentView === 'test-series' ? 'Test Series' : currentView === 'test-series-detail' ? 'Test Series' : currentView === 'downloads' ? 'Downloads' : (currentView === 'articles' || currentView === 'article') ? 'Articles ' : (currentView === 'Blogs' || currentView === 'Blogs') ? 'Blogs ' : 'Home';
             const [menuOpen, setMenuOpen] = useState(false);
             const [tsDropdownOpen, setTsDropdownOpen] = useState(false);
             const [mobileTsOpen, setMobileTsOpen] = useState(false);
@@ -3474,12 +3474,14 @@
             const btnRef = React.useRef(null);
             const rightBtnRef = React.useRef(null);
             const tsDropRef = React.useRef(null);
-            const links = ['Home', 'Courses', 'About', 'Articles / Blog', 'Downloads'];
+            const links = ['Home', 'Courses', 'About', 'Articles ',' Blog', 'Downloads'];
 
             const handleLinkClick = (link) => {
                 setMenuOpen(false);
-                if (link === 'Articles / Blog' && onArticlesClick) {
+                if (link === 'Articles ' && onArticlesClick) {
                     onArticlesClick();
+	        } else if (link === 'Blogs' && onBlogsClick) {
+                    onBlogsClick();
                 } else if (link === 'Home' && onHomeClick) {
                     onHomeClick();
                 } else if (link === 'About' && onAboutClick) {
